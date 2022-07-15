@@ -18,12 +18,12 @@ export const Title = ({ value, headerRightAction, headerLeftAction }) => {
             marginHorizontal: 2,
         },
         iconWrapper: {
-            width: 30,
-            backgroundColor: 'red',
+            width: 34,
+            // backgroundColor: 'red',
             marginHorizontal: 2
         }
     });
-    
+
     return <View style={styles.wrapper}>
         <View style={styles.iconWrapper}>
             {Boolean(headerLeftAction) && (<Text>Action de droite</Text>)}

@@ -1,15 +1,22 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Router from './router';
-import { CreateItemProvider } from './context';
-export default App = () => {
+import { CreateItemProvider, UserContextProvider, ItemsContextProvider } from './context';
+
+const App = () => {
   return (
-
-    <NavigationContainer>
+    <UserContextProvider>
       <CreateItemProvider>
-        <Router />
+        <ItemsContextProvider>
+          <Router />
+        </ItemsContextProvider>
       </CreateItemProvider>
-    </NavigationContainer>
-
+    </UserContextProvider>
   );
 }
+
+export default AppWithProvider = () => (
+  <NavigationContainer>
+    <App />
+  </NavigationContainer>
+)

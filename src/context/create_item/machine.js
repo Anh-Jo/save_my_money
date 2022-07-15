@@ -1,5 +1,6 @@
+import { API, graphqlOperation, } from "aws-amplify";
 import { assign, createMachine } from "xstate";
-
+import { createWage } from '../../graphql/mutations';
 const machine = {
     id: 'createItemMachine',
     initial: 'idle',
@@ -35,7 +36,7 @@ const machine = {
         cleaning: {
             always: {
                 target: 'idle',
-                delay: 300
+                delay: 3000
             }
         }
     }
@@ -64,7 +65,18 @@ const options = {
 }
 
 async function createItem() {
-
+    try {
+        console.log('createItem ')
+        const data = {
+            name: "Salaires",
+            amount: "300000",
+            frequencies: "MONTHLY"
+        };
+        const result = await API.graphql(graphqlOperation(createWage, { input: data }))
+        console.log('CreateItem result : ', result)
+    } catch (e) {
+        console.log('createItem error : ', e)
+    }
 }
 
 export const createItemMachine = createMachine(machine, options)

@@ -6,7 +6,7 @@ import { FREQUENCIE_LIST } from '../../constant';
 import { CreateItemContext } from '../../context';
 
 export default CreateSubscription = () => {
-    const { updateAttribute, name, amount, frequencies } = useContext(CreateItemContext);
+    const { updateAttribute, name, amount, frequencies, submit } = useContext(CreateItemContext);
     return (
         <SafeAreaView style={{ flex: 1, paddingHorizontal: 12, flexDirection: 'column' }}>
             <Title value={"Ajouter une dépense"} />
@@ -32,7 +32,7 @@ export default CreateSubscription = () => {
                 wrapperStyle={{ marginVertical: 6 }}
                 onChange={(index) => updateAttribute({ value: FREQUENCIE_LIST[index], attr: 'frequencies' })}
             />
-            <Button onPress={() => { }} title={"Sauvegarder"} />
+            <Button onPress={submit} title={"Sauvegarder"} />
         </SafeAreaView>
     )
 }

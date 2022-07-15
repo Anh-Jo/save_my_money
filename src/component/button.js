@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TouchableOpacity, View, Text, StyleSheet, Animated } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native';
 
 export const Button = ({ title = "", onPress }) => {
     const touchableRef = useRef(new Animated.Value(1)).current
@@ -43,13 +43,16 @@ export const Button = ({ title = "", onPress }) => {
             color: '#FBFBFB'
         }
     });
-
-    return <Animated.View
+    const AnimatedTouchable = Animated.createAnimatedComponent(View);
+    return <TouchableWithoutFeedback
         onPress={onPress}
-        style={styles.wrapper}
         onTouchStart={handlePressStyleIn}
         onTouchEnd={handlePressStyleOut}
     >
-        <Text style={styles.text}>{title}</Text>
-    </Animated.View>
+        <AnimatedTouchable
+            style={styles.wrapper}
+        >
+            <Text style={styles.text}>{title}</Text>
+        </AnimatedTouchable>
+    </TouchableWithoutFeedback>
 }
