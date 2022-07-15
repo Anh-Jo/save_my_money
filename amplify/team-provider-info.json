@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-savemymoney-staging-132944-authRole",
+      "UnauthRoleArn": "arn:aws:iam::109186466533:role/amplify-savemymoney-staging-132944-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::109186466533:role/amplify-savemymoney-staging-132944-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-savemymoney-staging-132944-deployment",
+      "UnauthRoleName": "amplify-savemymoney-staging-132944-unauthRole",
+      "StackName": "amplify-savemymoney-staging-132944",
+      "StackId": "arn:aws:cloudformation:eu-west-3:109186466533:stack/amplify-savemymoney-staging-132944/30de96c0-0442-11ed-b2a3-0ab48b1a7194",
+      "AmplifyAppId": "d156gr94c3d9w0"
+    },
+    "categories": {
+      "auth": {
+        "SaveMyMoney": {}
+      }
+    }
+  }
+}

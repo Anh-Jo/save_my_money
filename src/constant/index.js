@@ -1,0 +1,1 @@
+export const FREQUENCIE_LIST = ["Hebdomadaire", "Mensuel", "Annuel"] 

@@ -1,25 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import Router from './router';
+import { CreateItemProvider } from './context';
+export default App = () => {
+  return (
 
- import React from 'react';
+    <NavigationContainer>
+      <CreateItemProvider>
+        <Router />
+      </CreateItemProvider>
+    </NavigationContainer>
 
- import {
-   SafeAreaView,
-   Text,
- } from 'react-native';
- 
- const App = () => {
-   return (
-     <SafeAreaView style={{}}>
-       <Text>Just starting ! </Text>
-     </SafeAreaView>
-   );
- };
- 
- export default App;
- 
+  );
+}

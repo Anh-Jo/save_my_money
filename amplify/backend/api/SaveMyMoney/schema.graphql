@@ -1,0 +1,48 @@
+type ExceptionnalFees @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  name: String
+  amount: Int
+  startAt: AWSTimestamp
+  duration: Int
+  frequencies: Frequencies
+}
+
+type Challenge @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  name: String
+  frequencies: Frequencies
+  amount: String
+  startAt: AWSTimestamp
+  endAt: AWSTimestamp
+}
+
+type Wage @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  name: String
+  amount: String
+  frequencies: Frequencies
+}
+
+enum Frequencies {
+  MONTHLY
+  YEARLY
+  WEEKLY
+  DAILY
+}
+
+type Pricing @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  amount: String
+  frequencies: Frequencies
+  duration: Int
+  subscriptionsID: ID! @index(name: "bySubscriptions")
+}
+
+type Subscriptions @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  name: String
+  Pricings: [Pricing] @hasMany(indexName: "bySubscriptions", fields: ["id"])
+  startAt: AWSTimestamp
+  referer: String
+  endAt: AWSTimestamp
+}
