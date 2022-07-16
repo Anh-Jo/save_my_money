@@ -1,1 +1,1 @@
-export const FREQUENCIE_LIST = ["Hebdomadaire", "Mensuel", "Annuel"] 
+export const FREQUENCIE_LIST = ["Weekly", "Monthly", "Yearly"] 

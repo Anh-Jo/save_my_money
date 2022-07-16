@@ -14,7 +14,7 @@ export const CardItem = ({ name, amount, frequencies }) => {
             paddingHorizontal: 12,
             paddingVertical: 20,
             justifyContent: 'space-between',
-            width: width / 2
+            marginVertical: 6
         },
         title: {
             fontSize: 22,

@@ -64,16 +64,10 @@ const options = {
     }
 }
 
-async function createItem() {
+async function createItem({ name, amount, frequencies }, event) {
     try {
-        console.log('createItem ')
-        const data = {
-            name: "Salaires",
-            amount: "300000",
-            frequencies: "MONTHLY"
-        };
-        const result = await API.graphql(graphqlOperation(createWage, { input: data }))
-        console.log('CreateItem result : ', result)
+        const data = { name, amount: amount * 100, frequencies };
+        const result = await API.graphql(graphqlOperation(createWage, { input: data }));
     } catch (e) {
         console.log('createItem error : ', e)
     }

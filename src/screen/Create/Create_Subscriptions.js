@@ -30,7 +30,7 @@ export default CreateSubscription = () => {
                 value={frequencies}
                 items={FREQUENCIE_LIST}
                 wrapperStyle={{ marginVertical: 6 }}
-                onChange={(index) => updateAttribute({ value: FREQUENCIE_LIST[index], attr: 'frequencies' })}
+                onChange={(index) => updateAttribute({ value: FREQUENCIE_LIST[index].toUpperCase(), attr: 'frequencies' })}
             />
             <Button onPress={submit} title={"Sauvegarder"} />
         </SafeAreaView>

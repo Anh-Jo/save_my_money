@@ -8,7 +8,7 @@ export const UserContextProvider = ({ children }) => {
 
     useEffect(() => {
         (async () => {
-            const data = await Auth.currentAuthenticatedUser();
+            const data = await Auth.currentUserInfo();
             setUser(data)
         })();
     }, []);
