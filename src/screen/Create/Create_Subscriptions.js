@@ -5,23 +5,29 @@ import { Button, Input, Title } from '../../component';
 import { FREQUENCIE_LIST } from '../../constant';
 import { CreateItemContext } from '../../context';
 
-export default CreateSubscription = () => {
-    const { updateAttribute, name, amount, frequencies, submit } = useContext(CreateItemContext);
+/**
+ *  id: ID!
+    name: String
+    Pricings: [Pricing] @hasMany(indexName: "bySubscriptions", fields: ["id"])
+    startAt: AWSTimestamp
+    referer: String
+    endAt: AWSTimestamp
+ */
+export default CreateSubscription = ({ updateAttribute, name, amount, frequencies, startAt, endAt }) => {
     return (
-        <SafeAreaView style={{ flex: 1, paddingHorizontal: 12, flexDirection: 'column' }}>
-            <Title value={"Ajouter une dépense"} />
+        <>
             <Input
                 type="text"
                 label="Nom de la dépense"
                 value={name}
-                wrapperStyle={{ marginVertical: 6 }}
+                wrapperStyle={{ marginVertical: 12 }}
                 onChangeText={e => updateAttribute({ value: e, attr: 'name' })}
             />
             <Input
                 type="number"
                 label="Montant (en euro)"
                 value={amount}
-                wrapperStyle={{ marginVertical: 6 }}
+                wrapperStyle={{ marginVertical: 12 }}
                 onChangeText={e => updateAttribute({ value: e, attr: 'amount' })}
             />
             <Input
@@ -29,10 +35,25 @@ export default CreateSubscription = () => {
                 label="Pour combien de temps"
                 value={frequencies}
                 items={FREQUENCIE_LIST}
-                wrapperStyle={{ marginVertical: 6 }}
+                wrapperStyle={{ marginVertical: 12 }}
                 onChange={(index) => updateAttribute({ value: FREQUENCIE_LIST[index].toUpperCase(), attr: 'frequencies' })}
             />
-            <Button onPress={submit} title={"Sauvegarder"} />
-        </SafeAreaView>
+            <Input
+                type="date"
+                label="Date de début"
+                value={startAt}
+                items={FREQUENCIE_LIST}
+                wrapperStyle={{ marginVertical: 6 }}
+                onChange={(value) => updateAttribute({ value, attr: 'startAt' })}
+            />
+            <Input
+                type="date"
+                label="Date de fin (optionnel)"
+                value={endAt}
+                items={FREQUENCIE_LIST}
+                wrapperStyle={{ marginVertical: 6 }}
+                onChange={(value) => updateAttribute({ value, attr: 'endAt' })}
+            />
+        </>
     )
 }

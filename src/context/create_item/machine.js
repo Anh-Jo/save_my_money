@@ -1,9 +1,18 @@
 import { API, graphqlOperation, } from "aws-amplify";
 import { assign, createMachine } from "xstate";
 import { createWage } from '../../graphql/mutations';
+import { FREQUENCIE_LIST_EN } from '../../constant';
+
+const INITIAL_STATES = {
+    name: '',
+    amount: 1,
+    frequencies: 1
+};
+
 const machine = {
     id: 'createItemMachine',
     initial: 'idle',
+    context: INITIAL_STATES,
     states: {
         idle: {
             on: {
@@ -34,6 +43,8 @@ const machine = {
             }
         },
         cleaning: {
+            entry: 'cleanState',
+            exit: 'goBack',
             always: {
                 target: 'idle',
                 delay: 3000
@@ -42,19 +53,13 @@ const machine = {
     }
 }
 
-/**
- *  assign((context, event) => {
-    return {
-      count: context.count + event.value,
-      message: 'Count changed'
-    }
- */
+
 const options = {
     actions: {
         updateState: assign((_, event) => ({
             [event.attr]: event.value
-        })
-        )
+        })),
+        cleanState: assign(() => INITIAL_STATES)
     },
     guards: {
         formIsFill: () => true
@@ -66,8 +71,13 @@ const options = {
 
 async function createItem({ name, amount, frequencies }, event) {
     try {
-        const data = { name, amount: amount * 100, frequencies };
-        const result = await API.graphql(graphqlOperation(createWage, { input: data }));
+        const frequenciesField = FREQUENCIE_LIST_EN[frequencies];
+        const input = {
+            name,
+            amount: amount * 100,
+            frequencies: frequenciesField
+        }
+        const result = await API.graphql(graphqlOperation(createWage, { input }));
     } catch (e) {
         console.log('createItem error : ', e)
     }

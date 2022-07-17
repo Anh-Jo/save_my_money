@@ -3,7 +3,7 @@
   "serviceConfiguration": {
     "apiName": "SaveMyMoney",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-c862c067-0d28-482f-a4fe-018aa667a927/amplify/backend/api/SaveMyMoney/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-74e28a60-5474-49bd-9c1d-3784f4ba7628/amplify/backend/api/SaveMyMoney/schema.graphql",
     "defaultAuthType": {
       "mode": "AMAZON_COGNITO_USER_POOLS",
       "cognitoUserPoolId": "authSaveMyMoney"

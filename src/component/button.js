@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native';
 
-export const Button = ({ title = "", onPress }) => {
+export const Button = ({ title = "", onPress, wrapperStyle }) => {
     const touchableRef = useRef(new Animated.Value(1)).current
 
     const handlePressStyleIn = () => {
@@ -37,6 +37,7 @@ export const Button = ({ title = "", onPress }) => {
             transform: [
                 { scale: touchableRef }
             ],
+            ...wrapperStyle
         },
         text: {
             fontSize: 18,

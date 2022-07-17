@@ -46,3 +46,4 @@ type Subscriptions @model @auth(rules: [{allow: owner}]) {
   referer: String
   endAt: AWSTimestamp
 }
+ 

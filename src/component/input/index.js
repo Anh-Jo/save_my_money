@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { DatePickerCustom } from './input_date';
 import { NumberInputCustom } from './input_number';
 import { TextInputCustom } from './input_text';
 import { InputToggle } from './input_toggle';
@@ -37,6 +38,9 @@ const selectInput = (inputType) => {
         }
         case "toggle": {
             return InputToggle
+        }
+        case "date": {
+            return DatePickerCustom
         }
         default: false
     }

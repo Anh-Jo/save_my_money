@@ -8,9 +8,7 @@ import { onCreateWage } from '../graphql/subscriptions'
 
 export default Manage = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const { items = [] } = useContext(ItemsContext);
-    console.log('ITems : ', items)
-    const [isLoading, setIsLoading] = useState(false);
+    const { items = [], isLoading } = useContext(ItemsContext);
     const { navigate } = useNavigation();
     const navigateToModal = () => navigate('CreateSubscriptions');
 
@@ -21,13 +19,12 @@ export default Manage = () => {
             </SafeAreaView>
         )
     }
-
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <Title value={"Mes données"} />
             <Button onPress={navigateToModal} title={"Créer une dépense"} />
             <ScrollView style={{ flex: 1, alignContent: 'center', padding: 12 }}>
-                {items.map((item) => <CardItem {...item} key={item.id} />)}
+                {(items || []).map((item) => <CardItem {...item} key={item.id} />)}
             </ScrollView>
         </SafeAreaView>
     )

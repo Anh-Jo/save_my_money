@@ -6,11 +6,11 @@ import { CreateItemProvider, UserContextProvider, ItemsContextProvider } from '.
 const App = () => {
   return (
     <UserContextProvider>
-      <CreateItemProvider>
-        <ItemsContextProvider>
+      <ItemsContextProvider>
+        <CreateItemProvider>
           <Router />
-        </ItemsContextProvider>
-      </CreateItemProvider>
+        </CreateItemProvider>
+      </ItemsContextProvider>
     </UserContextProvider>
   );
 }

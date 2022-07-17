@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { View, TextInput, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { interopSymbols, isFunction } from 'xstate/lib/utils';
 
-export const InputToggle = ({ label = "", items = [], onChange, ...props }) => {
+export const InputToggle = ({ label = "", items = [], value, onChange, ...props }) => {
     if (!items.length) return null;
-    const [selected, setSelected] = useState(-1)
+    const [selected, setSelected] = useState(value)
     const styles = StyleSheet.create({
         wrapper: {
             flexDirection: 'row'
@@ -30,7 +30,7 @@ export const InputToggle = ({ label = "", items = [], onChange, ...props }) => {
 
     return <View style={styles.wrapper}>
         {
-            items.map((item, index) =>
+            (items || []).map((item, index) =>
                 <TouchableOpacity
                     key={item}
                     activeOpacity={.5}

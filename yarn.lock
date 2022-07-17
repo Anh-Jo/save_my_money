@@ -4479,7 +4479,7 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-dayjs@^1.8.15:
+dayjs@^1.11.3, dayjs@^1.8.15:
   version "1.11.3"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.3.tgz#4754eb694a624057b9ad2224b67b15d552589258"
   integrity sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A==
@@ -6649,6 +6649,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodahs@^0.0.1-security:
+  version "0.0.1-security"
+  resolved "https://registry.yarnpkg.com/lodahs/-/lodahs-0.0.1-security.tgz#cdb4ef77dd1b53720e040196834c8a4c1526a1d2"
+  integrity sha512-4sdlXpUyy6JJRQKC0hbVDxdSOgoc6qauTM02/AEOa/x8QTfBWtB3zhArWMnTakK4IQ2x1Dv3pt04Ye0r5TkBZQ==
+
 lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
@@ -7091,6 +7096,11 @@ mkdirp@^0.5.1:
   integrity sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==
   dependencies:
     minimist "^1.2.6"
+
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 ms@2.0.0:
   version "2.0.0"
@@ -7722,6 +7732,13 @@ react-native-codegen@^0.69.1:
     flow-parser "^0.121.0"
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
+
+react-native-date-picker@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-date-picker/-/react-native-date-picker-4.2.3.tgz#47aec7a3f5bb073eb2cb6b8749f3370468a6c8b0"
+  integrity sha512-yEsjBq9dmn8RsBnfWttoVkR5sbFGp20aT6wRbYJv7lv7dIdw/am+VDDHah7qrUH3ClwDu3+B+6zUPIEfvP3Kwg==
+  dependencies:
+    prop-types "^15.8.1"
 
 react-native-gesture-handler@^2.5.0:
   version "2.5.0"
